@@ -596,7 +596,7 @@
    
 
 
-    <section class="site-section bg-light" id="contact-section">
+    <section class="site-section col-12 bg-light" id="contact-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center">
@@ -605,11 +605,10 @@
           </div>
         </div>
         <div class="row">
+
+{#+++++++++++++++++++++++++++++++++++++++++++++ Форма сообщения ++++++++++++++++++++++++++++++++++++++++++++++++++++++#}
           <div class="col-md-7 mb-5">
-
-            
-
-            <form action="#" class="p-5 bg-white">
+            <form action="{% url 'message_sent' %}" class="p-5 bg-white">
               
               <h2 class="h4 text-black mb-5">Форма обратной связи</h2>
 
@@ -644,7 +643,7 @@
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="message">Сообщение</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Напишите ваши вопросы здесь..."></textarea>
                 </div>
               </div>
 
@@ -657,17 +656,19 @@
   
             </form>
           </div>
+{#--------------------------------------------- Форма сообщения ------------------------------------------------------#}
+
           <div class="col-md-5">
             
             <div class="p-4 mb-3 bg-white">
-              <p class="mb-0 font-weight-bold">Address</p>
-              <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+{#              <p class="mb-0 font-weight-bold">Address</p>#}
+{#              <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>#}
 
-              <p class="mb-0 font-weight-bold">Phone</p>
-              <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+              <p class="mb-0 font-weight-bold">Телефон</p>
+              <p class="mb-4"><a href="#">+7 900 000 00 00</a></p>
 
-              <p class="mb-0 font-weight-bold">Email Address</p>
-              <p class="mb-0"><a href="#">youremail@domain.com</a></p>
+              <p class="mb-0 font-weight-bold">Наша электронная почта</p>
+              <p class="mb-0"><a href="#">businesservice@abkey.ru</a></p>
 
             </div>
             
