@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-qb%e%mwo23g3*r(*!4=4%8si52=9)7%026)@-l@l)egh2cq+ci
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.3', '127.0.0.1:8000', '*']
 
 
 # Application definition
@@ -55,8 +56,10 @@ ROOT_URLCONF = 'abkey.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [
+            BASE_DIR / 'templates',
+            BASE_DIR / 'templates/lending',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-Ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -117,9 +120,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+# STATIC_ROOT = "lending/static/lending/"
+STATICFILES_DIRS = [
 
+    BASE_DIR / 'lending/static/lending/css',
+    BASE_DIR / 'lending/static/lending/fonts/',
+    BASE_DIR / 'lending/static/lending/fonts/icomoon/fonts/',
+    BASE_DIR / 'lending/static/lending/fonts/flaticon/font',
+    BASE_DIR / 'lending/static/lending/js',
+    BASE_DIR / 'lending/static/lending/scss',
+    'lending/static/lending/css',
+    'lending/static/lending/fonts/',
+    'lending/static/lending/fonts/icomoon/',
+    'lending/static/lending/fonts/icomoon/fonts/',
+    'lending/static/lending/fonts/flaticon/font/',
+    'lending/static/lending/js',
+    'lending/static/lending/scss',
+    BASE_DIR / 'lending/media/images/',
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = [
+    BASE_DIR / 'landing/media/',
+    ''
+]
