@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -160,14 +161,17 @@
 {#+++++++++++++++++++++++++++++++++++++++++++++ Форма сообщения ++++++++++++++++++++++++++++++++++++++++++++++++++++++#}
         <div class="row">
           <div class="col-md-7 mb-5">
-            <form action="{% url 'index' %}" class="p-5 bg-white" method="get">
+            <form action="{% url 'index' %}" class="p-5 bg-white" method="post" id="Mform">
                 {% csrf_token %}
+{#                {{ form }}#}
               <h2 class="h4 text-black mb-5">Форма обратной связи</h2>
               <div class="row form-group">
 {#                <div class="col-md-6 mb-3 mb-md-0">#}
+
                 <div class="col-md-12">
-                  <label class="text-black" for="fname">Имя</label>
-                  <input type="text" id="fname" class="form-control">
+                    {% bootstrap_field form.name_user placeholder=' '%}
+{#                  <label class="text-black" for="fname">Имя</label>#}
+{#                  <input type="text" id="fname" class="form-control">#}
                 </div>
 {#                <div class="col-md-6">#}
 {#                  <label class="text-black" for="lname">Last Name</label>#}
@@ -176,25 +180,29 @@
               </div>
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Ваша электронная почта</label>
-                  <input type="email" id="email" class="form-control">
+                    {% bootstrap_field form.email_user placeholder='example@abkey.ru'%}
+{#                  <label class="text-black" for="email">Ваша электронная почта</label>#}
+{#                  <input type="email" id="email" class="form-control">#}
                 </div>
               </div>
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="subject">Тема</label>
-                  <input type="text" id="subject" class="form-control">
+                    {% bootstrap_field form.subject_message placeholder=''%}
+{#                  <label class="text-black" for="subject">Тема</label>#}
+{#                  <input type="text" id="subject" class="form-control">#}
                 </div>
               </div>
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="message">Сообщение</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Напишите ваши вопросы здесь..."></textarea>
+                    {% bootstrap_field form.message placeholder='Текст сообщения...'%}
+{#                  <label class="text-black" for="message">Сообщение</label>#}
+{#                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Напишите ваши вопросы здесь..."></textarea>#}
                 </div>
               </div>
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Отправить сообщение" class="btn btn-primary btn-md text-white">
+                    {% bootstrap_field form.captcha show_label=False placeholder='Напишите символы с картинки'%}
+                  <input type="submit" form="Mform" value="Отправить сообщение" class="btn btn-primary btn-md text-white">
                 </div>
               </div>
             </form>
@@ -206,9 +214,9 @@
 {#              <p class="mb-0 font-weight-bold">Address</p>#}
 {#              <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>#}
               <p class="mb-0 font-weight-bold">Телефон</p>
-              <p class="mb-4"><a href="#">+7 900 000 00 00</a></p>
+              <p class="mb-4"><a href="#">+7 951 84 777 00</a></p>
               <p class="mb-0 font-weight-bold">Наша электронная почта</p>
-              <p class="mb-0"><a href="#">businesservice@abkey.ru</a></p>
+              <p class="mb-0"><a href="#">info@abkey.ru</a></p>
             </div>
           </div>
         </div>
@@ -266,6 +274,6 @@
   <script src="{% static 'jquery.fancybox.min.js' %}"></script>
   <script src="{% static 'jquery.sticky.js' %}"></script>
   <script src="{% static 'main.js' %}"></script>
-
+{# https://django-bootstrap4.readthedocs.io/en/latest/#}
   </body>
 </html>
