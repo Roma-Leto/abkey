@@ -17,3 +17,4 @@ class MessageClient(Model):
     subject_message = CharField(max_length=20)
     message = TextField(blank=True, null=True)
     time_send = DateTimeField(auto_now_add=True, db_index=True)
+    mob_num = CharField(max_length=20)
